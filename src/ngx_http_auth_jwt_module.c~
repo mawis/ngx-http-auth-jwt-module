@@ -443,7 +443,7 @@ loadAuthKey(ngx_conf_t *cf, ngx_http_auth_jwt_loc_conf_t* conf) {
 
 	conf->_auth_jwt_keyfile.data = ngx_palloc(cf->pool, keySize);
 	size_t bytesRead = fread(conf->_auth_jwt_keyfile.data, 1, keySize, keyFile);
-	if (bytesRead != (size_t)keySize)
+	if (bytesRead != keySize)
 	{
 		ngx_log_error(NGX_LOG_ERR, cf->log, 0, "read fewer bytes than expected");
 		return NGX_ERROR;
